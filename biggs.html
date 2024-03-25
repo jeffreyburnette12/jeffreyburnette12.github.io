@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+ 
+  <style>
+		button {
+			float: left;
+			margin-right: 10px;
+		}
+
+    header {
+      text-align: center;
+      background: url('https://c8.alamy.com/comp/2DDEGA1/guard-michael-jordan-photo-by-23-of-the-chicago-bulls-sits-nexts-to-his-wife-juanita-and-his-dad-james-while-hugging-the-nba-championship-trophy-after-the-bulls-defeated-the-los-angeles-lakers-4-1-after-game-5-of-the-nba-finals-on-june-12-1991-at-the-great-western-forum-in-inglewood-calif-photo-by-ken-levinegetty-imagestns-abacapresscom-2DDEGA1.jpg');
+      background-size: cover;
+      color: white;
+    }
+    a {
+      font-family: 'Lobster', sans-serif;
+      color: blue;
+    }
+    h1 {
+      font-size: 70px;
+      font-family: 'Ephesis', cursive;
+      color:red
+    }
+    img {
+      margin: 40px 0px 0px 0px;
+      border: 7px solid white;
+      border-radius: 20px;
+    }
+    ul {
+      padding: 10px;
+      background: rgba(0,110,0,0.5);
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+    article {
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+      color: purple;
+      font-family: 'Ephesis', cursive;
+      font-size: 30px;
+    }
+    body { 
+      background-color: red;
+    }
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 36px;
+        padding: 5px;
+      }
+      li {
+        padding: 5px;
+        display: block;
+      }
+    }
+		input {
+			font-size: 22px;
+		}
+		
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://www.freeiconspng.com/thumbs/basketball-png/basketball-png-15.png">
+    <h1>Jeffrey Blog</h1>
+    <ul>
+      <li><a href="https://www.123helpme.com/essay/The-Legend-Of-Basketball-The-Legacy-Of-378653">MJ legacy </a></li>
+      <li><a href="https://www.espn.com/nba/story/_/id/35652687/michael-jordan-23-facts-stories">Fun facts about MJ!</a></li>
+      <li><a href="https://www.insider.com/michael-jordan-net-worth-wife-house-nba-bulls-hornets-2015-3">Mj NET WORTH</a></li>
+    </ul>
+  </header>
+  <article>
+    <h2>Music i like :)</h2>
+    <p>Music i like is hiphop and R&B they really set the mood on mental health and it really  helps with school R&b really touches my soul and it makes me in peace and it really helps when im sad when i get heartbroken anyways my favorite artist is bigge smalls and chris brown and micheal jackon i love there music and i continue to listen to there music everyday.</p>
+    <button  class="likeButtons" >Like</button>
+		<div class="numLikes">0</div>
+  </article>
+  <article>
+    <h2>video games i like </h2>
+    <p>Fortnite and nba 2k 24 are really good they help me relax when im mad and i just play those games because of entertainment and fun they really set the mood when it comes to bordness. </p>
+    <button  class="likeButtons" >Like</button>
+		<div class="numLikes">0</div> 
+  </article>
+  <article>
+    <h2> favorite animals </h2>
+    <p>dogs because they are really fun to cuddle with and they are kindaeasy to handle and they are really joyful and playful and they reallly cheer you up when your sad and they are just your buddy and i enlightend you to get a dog.</p>
+    <button  class="likeButtons" >Like</button>
+		<div class="numLikes">0</div>
+  </article>
+<br><br>
+<br><br>
+		
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+		import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+   
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyBJR_kOxvRUHmve91iMABPomsbkAwbBXLo",
+	    authDomain: "monkey-bananna.firebaseapp.com",
+	    databaseURL: "https://monkey-bananna-default-rtdb.firebaseio.com",
+	    projectId: "monkey-bananna",
+	    storageBucket: "monkey-bananna.appspot.com",
+	    messagingSenderId: "620183483234",
+	    appId: "1:620183483234:web:25cc43efa9d7fe3b29f23b",
+	    measurementId: "G-DWRX3B1E49"
+	  };
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+		const db = getDatabase(app);
+
+   
+	
+		const LikeButtons = document.querySelectorAll('.likeButtons')
+		const numLikes = document.querySelectorAll('.numLikes')
+		
+	  for (let i=0; i<LikeButtons.length; i++) {
+		  LikeButtons[i].addEventListener('click', function(){ Like(i) })
+		  onValue(ref(db, "/article "+i+"/numLikes"), (snapshot) => {
+			    let data = snapshot.val();
+			    numLikes[i].innerHTML = data
+		  });
+			
+  	  }
+
+	  function Like(i) {
+		  const numberLikes = parseInt(numLikes[i].innerHTML) + 1
+		  set(ref(db, "article " + i), {
+			  numLikes: numberLikes,
+		  });
+	  }
+		
+
+  </script>
+	
+</body>
