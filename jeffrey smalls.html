@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+	input {
+		font-size: 22px;
+	}
+
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #800;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Ephesis', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: blue;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: navy;
+  margin: 0px 0 70px 0;
+  font-family: 'Bebas Neue', sans-serif;
+}
+p {
+  color: RED;
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,10,0,1), rgba(0,100,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+  font-family: 'Bitter', serif;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://images.ctfassets.net/pdf29us7flmy/6sgjLnV9uRYCeHgNczhAH8/01cafd43abf935c1835e03af4eebd369/wv2_DDDo.png?w=720&q=100&fm=jpg");
+}
+.second{
+  background-image: url("https://s3.amazonaws.com/utep-uploads/wp-content/uploads/hpu/2022/09/01081925/nurse-practitioner-talking-with-a-patient.jpg");
+}
+.dessert{
+  background-image: url("https://www.myhealthtalent.com/getasset/ce926313-958a-447e-8bed-bdd2fe08d57f/");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>INTRO  TO NURSE PRATTCITTONER</h1>
+<h2>ALL YOU NEED TO KNOW</h2>
+<div class="first">
+	<input type="number" min="0" style="width: 50px"class="quantities">
+  <p> nurse practtioner supplies  <span class="price">$120000</span><br />
+  <small>MONKEY BANANA, MONKEY BANANA, MONKEY BANANA, MONKEY BANANA ,MONKEY BANANA  </small></p>
+</div>
+
+<div class="second">
+	<input type="number" min="0" style="width: 50px"class="quantities">
+  <p> Nursing supplies <span class="price">$50000</span><br />
+  <small>Tri-tip capicola HOORAY </small></p>
+</div>
+  
+<div class="dessert">
+	<input type="number" min="0" style="width: 50px"class="quantities">
+  <p> medical practtioner supplies <span class="price">$2000</span><br />
+  <small>Lollipop tart cotton candy jelly-o carrot cake.</small></p>
+</div>
+<br><br>
+	<input id="Name" placeholder="User name">
+  <input id="Email" placeholder="Your email">
+  <input id="submit" type="submit">
+<br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+	
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+	import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBL8oIklkBegxfiApXPrC-e4LTwcjw1bsw",
+    authDomain: "banna-man.firebaseapp.com",
+    databaseURL: "https://banna-man-default-rtdb.firebaseio.com",
+    projectId: "banna-man",
+    storageBucket: "banna-man.appspot.com",
+    messagingSenderId: "722892966020",
+    appId: "1:722892966020:web:aa2ee58b4744b91ce61ad1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+	const db = getDatabase(app);
+	const Name = document.querySelector("#Name")
+	const Email = document.querySelector("#Email")
+	document.querySelector('#submit').addEventListener('click', Submit)
+const prices = document.querySelectorAll(".price") 
+  const quantities = document.querySelectorAll(".quantities") 
+const itemsList = ["nurse practtioner", "nursing ", "medical nurse"]
+
+	
+	
+	function Submit() {
+	  const timestamp = buildTimestamp()
+		let total = 0
+	  let cart = { }
+	  for  (let i=0; i<quantities.length; i=i+1) {
+	  	if (quantities[i].value != "0" && quantities[i].value != "") {
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price	
+	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+	  	}
+	  	quantities[i].value = ""
+	  }
+
+		
+	  
+	  set(ref(db, timestamp), {
+		  Name: Name.value,
+	      email: Email.value,
+			cart: cart,
+		  totalPrice: total,
+		  paid: "not yet",
+	  }); 
+
+	  Name.value = ""
+	  Email.value = ""
+	}
+
+	function buildTimestamp() {
+		  const now = new Date();
+		  let timestamp = now.getFullYear().toString() + "/";
+		  //const month = now.toLocaleString('default', { month: 'long' });
+
+		  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+		  month = month.toString()
+		  month = addLeadingZero(month)
+		  timestamp += month + "/"; 
+
+		  let date = now.getDate().toString()
+		  date = addLeadingZero(date)
+		  timestamp += date + "/";
+
+		  let hours = now.getHours().toString()
+		  hours = addLeadingZero(hours)
+		  timestamp += hours + ":";
+
+		  let minutes = now.getMinutes().toString()
+		  minutes = addLeadingZero(minutes)
+		  timestamp += minutes + ":";
+
+		  let seconds = now.getSeconds().toString()
+		  seconds = addLeadingZero(seconds)
+		  timestamp += seconds;
+  
+		  return timestamp
+		}
+	
+		function addLeadingZero(units) {
+			if (units.length < 2) {
+				units = "0" + units
+			}
+			return units
+		}
+	
+</script>
+</body>
